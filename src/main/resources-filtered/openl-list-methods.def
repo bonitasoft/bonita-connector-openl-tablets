@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definition:ConnectorDefinition
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:definition="http://www.bonitasoft.org/ns/connector/definition/6.1">
+
+  <id>${openl-list-methods.def.id}</id>
+  <version>${openl-list-methods.def.version}</version>
+  <icon>openl.png</icon>
+  <category icon="openl.png" id="OpenL Tablets"/>
+
+  <!-- Connection inputs -->
+  <input name="authMode" type="java.lang.String" mandatory="false" defaultValue="BASIC"/>
+  <input name="baseUrl" type="java.lang.String" mandatory="true"/>
+  <input name="username" type="java.lang.String" mandatory="false"/>
+  <input name="password" type="java.lang.String" mandatory="false"/>
+  <input name="bearerToken" type="java.lang.String" mandatory="false"/>
+  <input name="connectTimeout" type="java.lang.Integer" mandatory="false" defaultValue="30000"/>
+  <input name="readTimeout" type="java.lang.Integer" mandatory="false" defaultValue="60000"/>
+  <input name="trustAllCertificates" type="java.lang.Boolean" mandatory="false"/>
+  <input name="customTrustStorePath" type="java.lang.String" mandatory="false"/>
+  <input name="customTrustStorePassword" type="java.lang.String" mandatory="false"/>
+
+  <!-- Operation-specific inputs -->
+  <input name="serviceName" type="java.lang.String" mandatory="true"/>
+
+  <!-- Outputs -->
+  <output name="success" type="java.lang.Boolean"/>
+  <output name="errorMessage" type="java.lang.String"/>
+  <output name="methodsJson" type="java.lang.String"/>
+  <output name="methodCount" type="java.lang.Integer"/>
+
+  <!-- UI Pages -->
+  <page id="connectionPage">
+    <widget xsi:type="definition:RadioGroup" id="authModeWidget" inputName="authMode">
+      <choices>BASIC</choices>
+      <choices>BEARER</choices>
+    </widget>
+    <widget xsi:type="definition:Text" id="baseUrlWidget" inputName="baseUrl"/>
+    <widget xsi:type="definition:Text" id="usernameWidget" inputName="username"/>
+    <widget xsi:type="definition:Password" id="passwordWidget" inputName="password"/>
+    <widget xsi:type="definition:Password" id="bearerTokenWidget" inputName="bearerToken"/>
+  </page>
+  <page id="operationPage">
+    <widget xsi:type="definition:Text" id="serviceNameWidget" inputName="serviceName"/>
+  </page>
+  <page id="advancedPage">
+    <widget xsi:type="definition:Text" id="connectTimeoutWidget" inputName="connectTimeout"/>
+    <widget xsi:type="definition:Text" id="readTimeoutWidget" inputName="readTimeout"/>
+    <widget xsi:type="definition:Checkbox" id="trustAllCertificatesWidget" inputName="trustAllCertificates"/>
+    <widget xsi:type="definition:Text" id="customTrustStorePathWidget" inputName="customTrustStorePath"/>
+    <widget xsi:type="definition:Password" id="customTrustStorePasswordWidget" inputName="customTrustStorePassword"/>
+  </page>
+</definition:ConnectorDefinition>

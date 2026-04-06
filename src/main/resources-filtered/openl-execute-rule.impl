@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<implementation:connectorImplementation xmlns:implementation="http://www.bonitasoft.org/ns/connector/implementation/6.0">
+  <implementationId>${openl-execute-rule.impl.id}</implementationId>
+  <implementationVersion>${openl-execute-rule.impl.version}</implementationVersion>
+  <definitionId>${openl-execute-rule.def.id}</definitionId>
+  <definitionVersion>${openl-execute-rule.def.version}</definitionVersion>
+  <implementationClassname>${openl-execute-rule.main-class}</implementationClassname>
+  <hasSources>false</hasSources>
+  <description>OpenL Tablets Execute Rule connector implementation</description>
+
+<!-- retrieved from the pom.xml at build time -->
+${connector-dependencies}
+
+</implementation:connectorImplementation>
